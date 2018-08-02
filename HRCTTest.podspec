@@ -17,7 +17,7 @@ folly_version = '2016.10.31.00'
 
 Pod::Spec.new do |s|
   s.name                    = "HRCTTest"
-  s.version                 = '0.1.0'
+  s.version                 = '0.2.0'
   s.summary                 = '测试'
   s.description             = <<-DESC
                                 React Native apps are built using the React JS
@@ -35,7 +35,7 @@ Pod::Spec.new do |s|
   s.homepage                = "http://facebook.github.io/react-native/"
   s.license                 =  { :type => 'MIT' }
   s.author                  = "Facebook"
-  s.source                  = { :git => 'https://github.com/wowbby/Yoga.git', :tag => s.version.to_s }
+  s.source                  = { :git => 'https://github.com/wowbby/HRCTTest.git', :tag => s.version.to_s }
   s.default_subspec         = "Core"
   s.requires_arc            = true
   s.platforms               = { :ios => "9.0", :tvos => "9.2" }
@@ -44,9 +44,10 @@ Pod::Spec.new do |s|
   s.cocoapods_version       = ">= 1.2.0"
 
   s.subspec "Core" do |ss|
-    ss.dependency             "yoga", "0.2.0"
+    ss.dependency             "Hyoga", "0.2.0"
     ss.source_files         = "React/**/*.{c,h,m,mm,S,cpp}"
-    # ss.exclude_files        = "**/__tests__/*",
+    ss.exclude_files        = 
+                                # "**/__tests__/*",
     #                           "IntegrationTests/*",
                               "React/DevSupport/*",
                               "React/Inspector/*",
@@ -218,7 +219,7 @@ Pod::Spec.new do |s|
 
     ss.subspec "view" do |sss|
       sss.dependency             "Folly", folly_version
-      sss.dependency             "yoga","0.2.0"
+      sss.dependency             "Hyoga","0.2.0"
       sss.compiler_flags       = folly_compiler_flags
       sss.source_files         = "ReactCommon/fabric/view/**/*.{cpp,h}"
       # sss.exclude_files        = "**/tests/*"
